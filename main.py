@@ -44,13 +44,16 @@ def present_value_annuity(payment, rate, periods):
     return payment * ((1-(1+rate)**-periods)/rate)
 
 
+try:
+    pmt = float(input("Please enter the principle amount:"))
+    r= float(input("Please enter the interest rate:"))
+    n= int(input("Please enter the time period for loan:"))
 
-pmt = 1000
-r= 0.0
-n=10
+    fv = future_value_annuity(pmt,r,n)
+    pv = present_value_annuity(pmt,r,n)
 
-fv = future_value_annuity(pmt,r,n)
-pv = present_value_annuity(pmt,r,n)
+    print("Future Value of Annuity:",fv)
+    print("Present value of Annuity:", pv)
 
-print("Future Value of Annuity:",fv)
-print("Present value of Annuity:", pv)
+except ValueError as e:
+    print("Error:",e)
